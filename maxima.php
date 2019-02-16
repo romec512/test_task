@@ -10,7 +10,7 @@ require "interfaces/InOutHelper.php";
 require "classes/ConsoleHelper.php";
 $game = new \app\Game();
 while(true) {
-    echo "1)Начать игру\n2)Сделать ход\n3)Информация о разработчике\n4)Показать поле\n5)Выход\n";
+    echo "1)Начать игру\n2)Сделать ход\n3)Играть против компьютера\n4)Информация о разработчике\n5)Показать поле\n6)Выход\n";
     fscanf(STDIN, "%d\n", $command);
     try{
     switch ($command) {
@@ -20,13 +20,15 @@ while(true) {
         case 2: $game->execute();
             break;
         case 3 :
-//            $game->about();
             $game->UserComp();
             break;
-        case 4 :
-            $game->draw();
+        case 4:
+            $game->about();
             break;
         case 5 :
+            $game->draw();
+            break;
+        case 6 :
             exit();
             break;
     }} catch (Exception $e){
